@@ -75,3 +75,83 @@ emails.forEach(email => {
   console.log(`${email} is valid: ${validateEmail(email)}`);
 });
 
+
+
+// 6.  Flatten a nested array:
+//Write a function that takes a nested array of any depth and flattens it into a single-dimensional array.
+
+const nestedArray = [1, [2, 3], 4, [[5, 6], 7, 8], 9];
+
+function flattenArray(nestedArray) {
+  // Implement the function here
+}
+
+console.log(flattenArray(nestedArray)); // Expected result: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+
+// 7. Count occurrences of a character in a string:
+// Write a function that counts the occurrences of a specific character within a given string.
+
+
+const character = 'a';
+const string = 'Hello, world! How are you?';
+
+function countCharacterOccurrences(character, string) {
+  // Implement the function here
+}
+
+console.log(countCharacterOccurrences(character, string)); // Expected result: 4
+
+
+// 8. Generate a random password:
+// Write a function that generates a random password of a specified length, containing a mix of upper and lowercase letters, numbers, and special characters.
+
+function generateRandomPassword(length) {
+  // Implement the function here
+}
+
+const password = generateRandomPassword(12);
+console.log(password); // Example output: "T6&8yZUd3x"
+
+
+
+// 9. Deep copy an object:
+
+// Write a function that creates a deep copy of an object, ensuring that all nested properties and references are copied independently.
+
+const originalObject = {
+  prop1: 10,
+  prop2: {
+    nestedProp: 20
+  },
+  prop3: [1, 2, 3]
+};
+
+function deepCopyObject(object) {
+  // Implement the function here
+}
+
+const copiedObject = deepCopyObject(originalObject);
+console.log(copiedObject); // Should be a deep copy of originalObject
+console.log(originalObject === copiedObject); // Should be false (different references)
+
+// Modify the copied object to demonstrate independence
+copiedObject.prop2.nestedProp = 30;
+copiedObject.prop3[0] = 5;
+console.log(originalObject); // Original object should remain unchanged
+console.log(copiedObject); // Modified copied object
+
+
+// 10. Create a simple calculator:
+
+// Write a function that takes two numbers and an operator (+, -, *, /) and performs the corresponding mathematical operation, returning the result. Handle invalid operator inputs gracefully.
+
+function simpleCalculator(num1, num2, operator) {
+  // Implement the function here
+}
+
+console.log(simpleCalculator(10, 5, '+')); // Output: 15
+console.log(simpleCalculator(4, 2, '*')); // Output: 8
+console.log(simpleCalculator(12, 3, '/')); // Output: 4
+console.log(simpleCalculator(1, 0, '%')); // Output: "Invalid operator"
