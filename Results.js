@@ -239,3 +239,86 @@ try {
   console.log(simpleCalculator(10, 5, '+')); // Output: 15
   console.log(simpleCalculator(4, 2, '*')); // Output: 8
   console.log(simpleCalculator(12, 3, '/')); // Output:
+
+
+  
+// 11. Find the missing element in an array of consecutive numbers:
+
+function findMissingNumber(inputArray) {
+  const expectedSum = (100 * (100 + 1)) / 2; // Sum of consecutive numbers from 0 to 100
+  const actualSum = inputArray.reduce((sum, num) => sum + num, 0);
+  return expectedSum - actualSum;
+}
+
+// Example usage
+const inputArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 99, 100];
+const missingNumber = findMissingNumber(inputArray);
+console.log(missingNumber); // Output: 80
+
+  
+// 12. Determine if a string is a palindrome:
+
+function isPalindrome(inputString) {
+  const normalizedString = inputString.toLowerCase().replace(/[^a-z0-9]/g, ''); // Remove spaces and punctuation
+  const reversedString = normalizedString.split('').reverse().join('');
+  return normalizedString === reversedString;
+}
+
+// Example usage
+const inputString = "Race car";
+const isPal = isPalindrome(inputString);
+console.log(isPal); // Output: true
+
+
+// 13. Count the number of islands in a 2D grid:
+
+function countIslands(grid) {
+  const visited = new Set(); // To track visited cells
+
+  function dfs(row, col) {
+    if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || visited.has(`${row}-${col}`) || grid[row][col] === '0') {
+      return; // Out of bounds, visited, or water cell
+    }
+
+    visited.add(`${row}-${col}`); // Mark cell as visited
+
+    // Explore neighbors recursively
+    dfs(row - 1, col); // Up
+    dfs(row + 1, col); // Down
+    dfs(row, col - 1); // Left
+    dfs(row, col + 1); // Right
+  }
+
+  let islandCount = 0;
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[0].length; col++) {
+      if (grid[row][col] === '1' && !visited.has(`${row}-${col}`)) {
+        islandCount++; // Start DFS from an unvisited land cell
+        dfs(row, col);
+      }
+    }
+  }
+
+  return islandCount;
+}
+
+// Example usage
+const grid = [
+  ['1', '1', '1', '0', '0'],
+  ['1', '1', '1', '0', '0'],
+  ['0', '0', '0', '1', '1'],
+  ['0', '0', '0', '1', '1']
+];
+
+const islandCount = countIslands(grid);
+console.log(islandCount); // Output: 2
+
+
+
+// 15.  Implement a recursive function to calculate the factorial of a number:
+
+function calculateFactorial(number) {
+  if (number === 0) {
+    return 1; // Base case: factorial of 0 is 1
+  } else {
+    return number * calculate 
