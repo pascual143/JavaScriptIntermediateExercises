@@ -155,3 +155,75 @@ console.log(simpleCalculator(10, 5, '+')); // Output: 15
 console.log(simpleCalculator(4, 2, '*')); // Output: 8
 console.log(simpleCalculator(12, 3, '/')); // Output: 4
 console.log(simpleCalculator(1, 0, '%')); // Output: "Invalid operator"
+
+
+
+// 11.  Find the missing element in an array of consecutive numbers:
+// Given an array of integers containing consecutive numbers from 0 to 100 (inclusive), except for one missing number, find and return the missing number.
+
+const inputArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 99, 100]; // Missing number is 80
+
+function findMissingNumber(inputArray) {
+  // Implement the function here
+}
+
+console.log(findMissingNumber(inputArray)); // Expected output: 80
+
+
+
+// 12. Determine if a string is a palindrome:
+
+Write a function that checks whether a given string is a palindrome, ignoring spaces and punctuation.
+
+const inputString = "Race car"; // Palindrome when ignoring spaces and punctuation
+
+function isPalindrome(inputString) {
+  // Implement the function here
+}
+
+console.log(isPalindrome(inputString)); // Expected output: true
+
+
+// 13. Count the number of islands in a 2D grid:
+
+// Given a 2D grid representing a landmass ('1') and water ('0'), count the number of distinct islands. Two islands are considered connected if they share a common cell horizontally or vertically.
+
+const grid = [
+  ['1', '1', '1', '0', '0'],
+  ['1', '1', '1', '0', '0'],
+  ['0', '0', '0', '1', '1'],
+  ['0', '0', '0', '1', '1']
+]; // Expected output: 2 (two distinct islands)
+
+function countIslands(grid) {
+  // Implement the function here
+}
+
+console.log(countIslands(grid));
+
+// 14. Implement a binary search algorithm:
+
+Create a function that performs a binary search on a sorted array of numbers to find the index of a given target value. If the target is not present, return the insertion point for it.
+
+Example:
+
+JavaScript
+const inputArray = [10, 20, 35, 45, 50, 70, 80, 95];
+const targetValue = 40; // Target not present in the array
+
+function binarySearch(inputArray, targetValue) {
+  // Implement the function here
+}
+
+console.log(binarySearch(inputArray, targetValue)); // Expected output: 3 (insertion point for 40)
+
+
+// 15. Implement a recursive function to calculate the factorial of a number:
+
+// Write a recursive function that calculates the factorial of a non-negative integer.
+
+function calculateFactorial(number) {
+  // Implement the recursive function here
+}
+
+console.log(calculateFactorial(5)); // Expected output: 120
