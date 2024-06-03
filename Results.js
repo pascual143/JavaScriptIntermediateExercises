@@ -111,3 +111,131 @@ const emails = ["user@example.com", "user123@domain.org", "notvalid@emailmail"];
 emails.forEach(email => {
   console.log(`${email} is valid: ${validateEmail(email)}`);
 });
+
+
+// 6. Flatten a nested array:
+
+function flattenArray(nestedArray) {
+  const flattenedArray = [];
+
+  function traverse(array) {
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      if (Array.isArray(element)) {
+        traverse(element); // Recursively flatten nested arrays
+      } else {
+        flattenedArray.push(element); // Add non-array elements to the flattened array
+      }
+    }
+  }
+
+  traverse(nestedArray);
+  return flattenedArray;
+}
+
+// Example usage
+const nestedArray = [1, [2, 3], 4, [[5, 6], 7, 8], 9];
+const flattened = flattenArray(nestedArray);
+console.log(flattened); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+// 7. Count occurrences of a character in a string:
+
+function countCharacterOccurrences(character, string) {
+  let count = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === character) {
+      count++;
+    }
+  }
+  return count;
+}
+
+// Example usage
+const character = 'a';
+const string = 'Hello, world! How are you?';
+const characterCount = countCharacterOccurrences(character, string);
+console.log(characterCount); // Output: 4
+
+
+// 8. Generate a random password:
+
+function generateRandomPassword(length) {
+  const passwordCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]|;:<>,.?/';
+  let password = '';
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * passwordCharacters.length);
+    password += passwordCharacters[randomIndex];
+  }
+
+  return password;
+}
+
+// Example usage
+const passwordLength = 12;
+const generatedPassword = generateRandomPassword(passwordLength);
+console.log(generatedPassword); // Example output: "T6&8yZUd3x"
+
+
+// 9. Deep copy an object:
+
+function deepCopyObject(object) {
+  if (!object || typeof object !== 'object') {
+    return object; // Return primitive values or null as-is
+  }
+
+  const copiedObject = {};
+  for (const key in object) {
+    if (object.hasOwnProperty(key)) {
+      copiedObject[key] = deepCopyObject(object[key]); // Recursively copy nested objects
+    }
+  }
+  return copiedObject;
+}
+
+// Example usage
+const originalObject = {
+  prop1: 10,
+  prop2: {
+    nestedProp: 20
+  },
+  prop3: [1, 2, 3]
+};
+
+const copiedObject = deepCopyObject(originalObject);
+console.log(copiedObject); // Should be a deep copy of originalObject
+console.log(originalObject === copiedObject); // Should be false (different references)
+
+// Modify the copied object to demonstrate independence
+copiedObject.prop2.nestedProp = 30;
+copiedObject.prop3[0] = 5;
+console.log(originalObject); // Original object should remain unchanged
+console.log(copiedObject); // Modified copied object
+
+
+// 10. Create a simple calculator:
+
+function simpleCalculator(num1, num2, operator) {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      if (num2 === 0) {
+        throw new Error('Division by zero');
+      }
+      return num1 / num2;
+    default:
+      throw new Error('Invalid operator');
+  }
+}
+
+// Example usage
+try {
+  console.log(simpleCalculator(10, 5, '+')); // Output: 15
+  console.log(simpleCalculator(4, 2, '*')); // Output: 8
+  console.log(simpleCalculator(12, 3, '/')); // Output:
