@@ -4,10 +4,13 @@
 // Write a function that sorts a dictionary (object) by its values from highest to lowest. The dictionary can contain any data type (numbers, strings, etc.).
 // PSEUDOCODE
 
-// Create an empty list sortedList
-// Iterate through each key-value pair in the dictionary
+// Function: sortDictionaryByValue(dictionary)
+// Input: dictionary (an object containing key-value pairs)
+// Output: sortedDictionary (a new object with key-value pairs sorted by values in descending order)
+// 1.Create an empty list sortedList
+// 2.Iterate through each key-value pair in the dictionary
 // Add the key-value pair as a tuple ((key, value)) to the sortedList
-// Sort the sortedList using a custom comparison function:
+// 3.Sort the sortedList using a custom comparison function:
 // The comparison function takes two tuples ((key1, value1) and (key2, value2)) as arguments.
 // It should return:
 // -1 if value1 is greater than value2 (descending order)
@@ -37,7 +40,20 @@ console.log(sortedDictionary); // Output: { d: 1, b: 2, c: 5, a: 10 }
 
 
 // 2. Remove duplicates from a list:
-JavaScript
+// PSEUDOCODE
+// Function: removeDuplicates(list)
+// Input: list (an array containing elements)
+// Output: uniqueList (a new array with only unique elements from the original list)
+//Steps:
+// Create an empty set uniqueSet
+// Iterate through each element in the list
+// If the element is not present in the uniqueSet:
+// Add the element to the uniqueSet
+// Create an empty list uniqueList
+// Iterate through each element in the uniqueSet
+// Add the element to the uniqueList
+// Return the uniqueList
+
 function removeDuplicates(list) {
   const uniqueSet = new Set(list); // Create a Set to store unique elements
   return [...uniqueSet]; // Convert Set back to an array
