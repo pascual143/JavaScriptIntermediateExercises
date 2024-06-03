@@ -227,3 +227,118 @@ function calculateFactorial(number) {
 }
 
 console.log(calculateFactorial(5)); // Expected output: 120
+
+
+
+// 16. Find the peak element in a 2D matrix.
+// Given a 2D matrix where each row is sorted in non-decreasing order, find the row with the smallest peak element. 
+// A peak element is an element that is an element that is greater than or equal to its neightbors (including the element on the same row and the adjancent rows, if any)
+
+Function findPeakElement(matrix) {
+  // Implement the function here
+}
+
+const matrix = [
+  [10, 20, 30],
+  [40, 50, 60],
+  [70, 80, 90]
+]
+
+const peakelement = findPeakElement(matrix);
+console.log(peakelement); //Element output: [0, 0] (row 0, column 0)
+
+
+// 17. count the number of occurrences of a pattern in a string:
+// Write a function that counts the number f non-overlapping ocurrencces of a given pattern(substring) in a text string.
+// The pattern and text can be of any length.
+
+function countPatternOccurrences(pattern, text) {
+  // Implement the code here
+}
+
+const pattern = "abca";
+const text = "ababababcabc";
+
+const occurrenceCount = countPatternOccurrences(pattern, text);
+console.log(occurrenceCount); //Expected output: 3
+
+
+// 18. Implement a depth-first search (DFS) algorithm for a graph:
+
+// Create a function that performs a depth-first search (DFS) traversal on a graph. The graph can be represented using an adjacency list or adjacency matrix.
+
+function depthFirstSearch(graph, startNode) {
+  const visited = new Set(); // To track visited nodes
+
+  function dfs(node) {
+    visited.add(node);
+    console.log(node); // Process the node
+
+    for (const neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        dfs(neighbor); // Recursively explore unvisited neighbors
+      }
+    }
+  }
+
+  dfs(startNode);
+}
+
+const graph = {
+  0: [1, 2],
+  1: [3],
+  2: [1],
+  3: []
+};
+
+depthFirstSearch(graph, 0); // Output: 0 1 3 2
+
+
+
+//  19.  Implement a breadth-first search (BFS) algorithm for a graph:
+
+// Create a function that performs a breadth-first search (BFS) traversal on a graph. The graph can be represented using an adjacency list or adjacency matrix.
+
+function breadthFirstSearch(graph, startNode) {
+  const queue = [startNode]; // Queue for BFS traversal
+  const visited = new Set();
+
+  while (queue.length > 0) {
+    const currentNode = queue.shift();
+    visited.add(currentNode);
+    console.log(currentNode); // Process the node
+
+    for (const neighbor of graph[currentNode]) {
+      if (!visited.has(neighbor)) {
+        queue.push(neighbor); // Add unvisited neighbors to the queue
+      }
+    }
+  }
+}
+
+const graph = {
+  0: [1, 2],
+  1: [3],
+  2: [1],
+  3: []
+};
+
+breadthFirstSearch(graph, 0); // Output: 0 1 2 3
+
+
+
+// 20. Implement a Huffman encoding algorithm for data compression:
+
+Create a function that implements Huffman encoding for data compression. Huffman encoding assigns shorter codes to more frequent characters, reducing the overall bit representation of a text file.
+
+Starting code:
+
+JavaScript
+function huffmanEncoding(text) {
+  // Implement the function here
+}
+
+const text = "Hello, world! How are you?";
+
+const encodedText = huffmanEncoding(text);
+console.log(encodedText); // Encoded representation of the text
