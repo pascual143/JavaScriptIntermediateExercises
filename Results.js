@@ -325,4 +325,200 @@ function calculateFactorial(number) {
 
 
 
+// 16.   Find the peak element in a 2D matrix:
+
+function findPeakElement(matrix) {
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+
+  let row = 0;
+  let col = numCols - 1;
+
+  while (row < numRows && col >= 0) {
+    const currentElement = matrix[row][col];
+    const rightNeighbor = col < numCols - 1 ? matrix[row][col + 1] : Number.POSITIVE_INFINITY;
+    const bottomNeighbor = row < numRows - 1 ? matrix[row + 1][col] : Number.POSITIVE_INFINITY;
+
+    if (currentElement >= rightNeighbor && currentElement >= bottomNeighbor) {
+      // Peak element found
+      return [row, col];
+    } else if (currentElement < rightNeighbor) {
+      // Move right
+      col++;
+    } else {
+      // Move down
+      row++;
+    }
+  }
+
+  // No peak element found
+  return [-1, -1];
+}
+
+// Example usage
+const matrix = [
+  [10, 20, 30],
+  [40, 50, 60],
+  [70, 80, 90]
+];
+
+const peakElement = findPeakElement(matrix);
+console.log(peakElement); // Output: [0, 0] (row 0, column 0)
+
+
+// 17. Count the number of occurrences of a pattern in a string:
+
+function countPatternOccurrences(pattern, text) {
+  const patternLength = pattern.length;
+  let count = 0;
+
+  for (let i = 0; i <= text.length - patternLength; i++) {
+    if (text.slice(i, i + patternLength) === pattern) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example usage
+const pattern = "abca";
+const text = "ababababcabc";
+
+const occurrenceCount = countPatternOccurrences(pattern, text);
+console.log(occurrenceCount); // Output: 3
+
+
+// 18. Implement a depth-first search (DFS) algorithm for a graph:
+
+function depthFirstSearch(graph, startNode) {
+  const visited = new Set(); // To track visited nodes
+
+  function dfs(node) {
+    visited.add(node);
+    console.log(node); // Process the node
+
+    for (const neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        dfs(neighbor); // Recursively explore unvisited neighbors
+      }
+    }
+  }
+
+  dfs(startNode);
+}
+
+// Example usage
+const graph = {
+  0: [1, 2],
+  1: [3],
+  2: [1],
+  3: []
+};
+
+depthFirstSearch(graph, 0); // Output: 0 1 3 2
+
+
+
+// 19.  Implement a breadth-first search (BFS) algorithm for a graph:
+
+function breadthFirstSearch(graph, startNode) {
+  const queue = [startNode]; // Queue for BFS traversal
+  const visited = new Set();
+
+  while (queue.length > 0) {
+    const currentNode = queue.shift();
+    visited.add(currentNode);
+    console.log(currentNode); // Process the node
+
+    for (const neighbor of graph[currentNode]) {
+      if (!visited.has(neighbor)) {
+        queue.push(neighbor); // Add unvisited neighbors to the queue
+      }
+    }
+  }
+}
+
+// Example usage
+const graph = {
+  0: [1, 2],
+  1: [3],
+  2: [1],
+  3: []
+};
+
+breadthFirstSearch(graph, 0); // Output: 0 1 2 3
+Usa el código con precaución.
+content_copy
+5. Implement a Huffman encoding algorithm for data compression:
+
+JavaScript
+function huffmanEncoding(text) {
+  // Create a frequency table for each character
+  const frequencyTable = {};
+  for (const char of text) {
+    frequencyTable[char] = (frequencyTable[char] || 0) + 1;
+  }
+
+  // Build the Huffman tree
+  const tree = buildHuffmanTree(frequencyTable);
+
+  // Generate Huffman codes for each character
+  const huffmanCodes = {};
+
+    
+// 20. Implement a Huffman encoding algorithm for data compression:
+
+function huffmanEncoding(text) {
+  // Create a frequency table for each character
+  const frequencyTable = {};
+  for (const char of text) {
+    frequencyTable[char] = (frequencyTable[char] || 0) + 1;
+  }
+
+  // Build the Huffman tree
+  const tree = buildHuffmanTree(frequencyTable);
+
+  // Generate Huffman codes for each character
+  const huffmanCodes = {};
+  generateHuffmanCodes(tree, '', huffmanCodes);
+
+  // Encode the text using Huffman codes
+  const encodedText = encodeText(text, huffmanCodes);
+
+  // Return the encoded text and Huffman codes
+  return { encodedText, huffmanCodes };
+
+  function generateHuffmanCodes(node, currentCode, huffmanCodes) {
+    if (!node.left && !node.right) {
+      huffmanCodes[node.value] = currentCode;
+      return;
+    }
+
+    if (node.left) {
+      generateHuffmanCodes(node.left, currentCode + '0', huffmanCodes);
+    }
+
+    if (node.right) {
+      generateHuffmanCodes(node.right, currentCode + '1', huffmanCodes);
+    }
+  }
+
+  function encodeText(text, huffmanCodes) {
+    let encodedText = '';
+    for (const char of text) {
+      encodedText += huffmanCodes[char];
+    }
+    return encodedText;
+  }
+}
+
+// Example usage
+const text = "Hello, world! How are you?";
+
+const encodedData = huffmanEncoding(text);
+console.log(encodedData.encodedText); // Encoded representation of the text
+console.log(encodedData.huffmanCodes); // Huffman codes for each character
+
+
 
