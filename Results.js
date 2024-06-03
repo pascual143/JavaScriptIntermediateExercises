@@ -68,6 +68,23 @@ console.log(uniqueList); // Output: [1, 2, 3, 4, 5]
 
 
 // 3. Find the maximum value in a nested object:
+//PSEUDOCODE
+// Function: findNestedMaximum(object)
+// Input: object (a potentially nested object containing numeric values)
+// Output: maximumValue (the highest numeric value found within the object)
+// Steps:
+// Initialize a variable maxValue to null (to track the maximum value found)
+// Define a recursive function traverse(obj)
+// This function takes an object (obj) as input.
+// Iterate through each key-value pair in the obj
+// Check the data type of the value:
+// If the value is an object:
+// Recursively call traverse(obj[key]) to explore nested objects.
+// If the value is a number:
+// If maxValue is null or the current value obj[key] is greater than maxValue:
+// Update maxValue to the current value.
+// Call the traverse function with the original object as input (to start the recursive exploration)
+// Return the maxValue
 
 function findNestedMaximum(object) {
   let maxValue = null; // Initialize maximum value
