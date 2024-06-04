@@ -613,7 +613,26 @@ console.log(peakElement); // Output: [0, 0] (row 0, column 0)
 
 
 // 17. Count the number of occurrences of a pattern in a string:
-
+// Function: countPatternOccurrences(pattern, text)
+// Input:
+// pattern (a string representing the pattern to search for)
+// text (a string representing the text to search within)
+// Output:
+// count (an integer representing the total number of occurrences of the pattern in the text string)
+// Steps:
+// Get the length of the pattern (patternLength).
+// Initialize a variable count to 0. This will store the number of pattern occurrences found.
+// Iterate through the text string using a loop.
+// Start the loop at index i = 0 and iterate up to text.length - patternLength. This ensures we don't go out of bounds when trying to extract substrings for comparison.
+// Inside the loop:
+// Extract a substring of the text string with the same length as the pattern starting from the current index i. You can use text.slice(i, i + patternLength) to achieve this.
+// Compare the extracted substring with the pattern using strict equality (===).
+// If the comparison is true (extracted substring matches the pattern):
+// Increment the count by 1 to indicate one occurrence found.
+// After the loop completes:
+// The count variable will hold the total number of times the pattern was found in the text string.
+// Return the count value.
+    
 function countPatternOccurrences(pattern, text) {
   const patternLength = pattern.length;
   let count = 0;
