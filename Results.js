@@ -549,7 +549,30 @@ function calculateFactorial(number) {
 
 
 // 16.   Find the peak element in a 2D matrix:
-
+// Function: findPeakElement(matrix)
+// Input:
+// matrix (a 2D array representing a matrix where each element represents a value)
+// Output:
+// peakElement (an array containing two elements: [row, col] representing the coordinates of the peak element)
+// Steps:
+// Get the number of rows (numRows) and columns (numCols) in the matrix.
+// Initialize two variables:
+// row (starting from the top row, index 0)
+// col (starting from the rightmost column, index numCols - 1)
+// Use a while loop to iterate until both row and col are out of bounds:
+// Get the current element value: currentElement = matrix[row][col]
+// Get the values of the right and bottom neighbors:
+// rightNeighbor: Check if the right column index is within bounds. If yes, access the element value in matrix[row][col + 1]. Otherwise, set it to a very high positive value (e.g., Number.POSITIVE_INFINITY) to ensure it's not considered the peak.
+// bottomNeighbor: Check if the bottom row index is within bounds. If yes, access the element value in matrix[row + 1][col]. Otherwise, set it to a very high positive value for the same reason.
+// Compare the current element with its neighbors:
+// If currentElement is greater than or equal to both rightNeighbor and bottomNeighbor, it's a peak element.
+// Return [row, col] as the peak element coordinates.
+// If currentElement is less than rightNeighbor, there might be a higher peak to the right.
+// Move right by incrementing col.
+// Otherwise (currentElement is less than bottomNeighbor), there might be a higher peak below.
+// Move down by incrementing row.
+// If the loop finishes without finding a peak (both row and col become out of bounds), return [-1, -1] to indicate no peak element was found.
+    
 function findPeakElement(matrix) {
   const numRows = matrix.length;
   const numCols = matrix[0].length;
