@@ -406,7 +406,19 @@ try {
 
   
 // 11. Find the missing element in an array of consecutive numbers:
-
+// Function: findMissingNumber(inputArray)
+// Input:
+// inputArray (an array containing consecutive integers with one element missing)
+// Output:
+// missingNumber (the integer that is missing from the sequence)
+// Steps:
+// Calculate the expected sum:
+// Assuming the array contains consecutive integers from a known starting and ending point (e.g., 0 to 100), calculate the sum of all consecutive numbers in the range.
+// In this example, we use the formula for the sum of an arithmetic series: expectedSum = (first number + last number) * number of elements / 2.
+// Calculate the actual sum:
+// Use the reduce method on the inputArray to iterate through each element and add them together. This gives you the actual sum of the numbers present in the array.
+// Find the missing difference:
+// Subtract the actual sum from the expected sum. The result will be the value of the missing number.
 function findMissingNumber(inputArray) {
   const expectedSum = (100 * (100 + 1)) / 2; // Sum of consecutive numbers from 0 to 100
   const actualSum = inputArray.reduce((sum, num) => sum + num, 0);
