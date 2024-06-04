@@ -463,7 +463,28 @@ console.log(isPal); // Output: true
 
 
 // 13. Count the number of islands in a 2D grid:
-
+// Function: countIslands(grid)
+// Input:
+// Grid (a 2D array representing a grid where '1' indicates land and '0' indicates water)
+// Output:
+// islandCount (an integer representing the total number of islands in the grid)
+// Steps:
+// Create a set visited to track visited cells. This will help avoid revisiting the same cell during island exploration.
+// Define a recursive function dfs(row, col) for Depth-First Search (DFS).
+// This function takes the coordinates (row and col) of a cell as input.
+// It checks various conditions to determine if further exploration is needed:
+// Out of bounds: If the cell is outside the grid boundaries, return.
+// Visited cell: If the cell has already been visited (checked in a previous DFS call), return (avoid revisiting).
+// Water cell: If the cell value is '0' (water), return (no island exploration needed on water).
+// If the cell is a valid unvisited land cell (grid[row][col] === '1'), mark it as visited using visited.add(row−{col}).
+// Recursively call dfs on the four neighboring cells (up, down, left, right) to explore potential connections and continue island discovery.
+// Initialize islandCount to 0. This will store the total number of islands found.
+// Iterate through each cell in the grid using nested loops.
+// For each cell:
+// If the cell value is '1' (land) and it hasn't been visited before (!visited.has(row−{col})), it's a potential starting point for a new island.
+// Increment islandCount by 1.
+// Call dfs(row, col) to start exploring the island from this cell. This will recursively explore connected land cells, marking them as visited.
+// After iterating through all cells, islandCount will hold the total number of islands discovered in the grid.
 function countIslands(grid) {
   const visited = new Set(); // To track visited cells
 
