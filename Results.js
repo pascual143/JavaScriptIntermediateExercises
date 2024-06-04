@@ -124,7 +124,23 @@ console.log(maximumValue); // Output: 40
 
 
 // 4. Convert a date string to ISO format:
-
+// Function: convertDateToISO(dateString)
+// Input: dateString (a string representing a date in a specific format)
+// Output: isoDate (a string in ISO 8601 format: YYYY-MM-DD)
+// Steps:
+// Create a Date object named date by parsing the dateString
+// Check if the date object is valid:
+// If isNaN(date.getTime()) is true (invalid date string), throw an error message indicating an invalid format.
+// Extract the year, month, and day components from the date object:
+// year = date.getFullYear()
+// month = date.getMonth() + 1 (months are zero-indexed, so add 1)
+// day = date.getDate()
+// Format the month and day strings to ensure two digits (leading zeros for single digits):
+// monthString = month.toString().padStart(2, '0')
+// dayString = day.toString().padStart(2, '0')
+// Construct the ISO 8601 formatted date string:
+// isoDate = ${year}-${monthString}-${dayString}
+// Return the isoDate string
 function convertDateToISO(dateString) {
   const date = new Date(dateString); // Convert string to Date object
   if (isNaN(date.getTime())) {
@@ -147,6 +163,8 @@ console.log(isoDate); // Output: "2024-03-15"
 
 
 // 5. Validate an email address:
+
+
 
 JavaScript
 function validateEmail(email) {
