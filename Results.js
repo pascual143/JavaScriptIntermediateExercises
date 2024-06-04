@@ -529,7 +529,17 @@ console.log(islandCount); // Output: 2
 
 
 // 15.  Implement a recursive function to calculate the factorial of a number:
-
+// Function: calculateFactorial(number)
+// Input:
+// number (a non-negative integer)
+// Output:
+// factorial (the factorial value of the number)
+// Steps:
+// Base case:
+// If number is equal to 0, the factorial is 1. Return 1.
+// Recursive case:
+// Otherwise, return the product of number and the factorial of number - 1.
+// This breaks down the factorial calculation into smaller subproblems (number - 1 factorial) until reaching the base case (factorial of 0).
 function calculateFactorial(number) {
   if (number === 0) {
     return 1; // Base case: factorial of 0 is 1
