@@ -236,6 +236,21 @@ console.log(flattened); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 // 7. Count occurrences of a character in a string:
+// Function: countCharacterOccurrences(character, string)
+// Input:
+// character (a single character you want to count)
+// string (a string where you want to count the character)
+// Output:
+//count (an integer representing the number of times the character appears in the string)
+// Steps:
+// Initialize a variable count to 0 (to store the occurrence count).
+// Iterate through each character in the string using a loop (e.g., for loop).
+// Inside the loop, compare the current character in the string with the target character:
+// If they are equal:
+// Increment the count by 1.
+// After iterating through the entire string:
+// The count variable will hold the total number of occurrences of the character in the string.
+// Return the count value.
 
 function countCharacterOccurrences(character, string) {
   let count = 0;
@@ -255,7 +270,22 @@ console.log(characterCount); // Output: 4
 
 
 // 8. Generate a random password:
-
+// Function: generateRandomPassword(length)
+// Input:
+// length (an integer specifying the desired password length)
+// Output:
+// password (a string containing the generated random password)
+// Steps:
+// Define a string passwordCharacters containing the character set used to generate the password. This string can be customized to include desired character types (uppercase letters, lowercase letters, numbers, symbols).
+// Initialize an empty string password to store the generated password.
+// Iterate a loop length number of times:
+// Generate a random index:
+// Use Math.floor(Math.random() * passwordCharacters.length) to get a random integer within the range of the passwordCharacters string length (0 to length-1).
+// Extract a random character:
+// Use the random index to access a character from the passwordCharacters string and append it to the password string.
+// After the loop completes:
+// The password string will contain a sequence of randomly chosen characters from the defined character set.
+// Return the password string.
 function generateRandomPassword(length) {
   const passwordCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]|;:<>,.?/';
   let password = '';
@@ -275,7 +305,28 @@ console.log(generatedPassword); // Example output: "T6&8yZUd3x"
 
 
 // 9. Deep copy an object:
-
+// Function: deepCopyObject(object)
+// Input:
+// object (the object you want to create a deep copy of)
+// Output:
+// copiedObject (a new object that is a deep copy of the original)
+// Steps:
+// Handle base cases:
+// If the object is null, undefined, or a primitive value (string, number, boolean):
+// Simply return the object as-is. There's nothing to copy for primitive values.
+// Create a new empty object copiedObject to store the copied data.
+// Iterate through each key-value pair in the original object:
+// Check if the property is directly owned by the object (not inherited):
+// Use object.hasOwnProperty(key) to verify this.
+// For each owned property:
+// Check the data type of the property value:
+// If the value is an object:
+// Recursively call deepCopyObject(object[key]) to create a deep copy of the nested object and assign it to the corresponding key in the copiedObject.
+// If the value is not an object:
+// Simply assign the value from the original object to the corresponding key in the copiedObject.
+// After iterating through all properties:
+// The copiedObject will contain copies of all properties from the original object, including those from nested objects.
+// Return the copiedObject which is a deep copy of the original object.
 function deepCopyObject(object) {
   if (!object || typeof object !== 'object') {
     return object; // Return primitive values or null as-is
@@ -311,7 +362,23 @@ console.log(copiedObject); // Modified copied object
 
 
 // 10. Create a simple calculator:
-
+// Function: simpleCalculator(num1, num2, operator)
+// Input:
+// num1 (the first number)
+// num2 (the second number)
+// operator (a string representing the operation to perform: +, -, *, /)
+// Output:
+// result (the numeric result of the calculation)
+// Steps:
+// Use a switch statement based on the operator:
+// Case '+': Add num1 and num2 and return the result.
+// Case '-': Subtract num2 from num1 and return the result.
+// Case '*': Multiply num1 and num2 and return the result.
+// Case '/':
+// Check if num2 is equal to zero.
+// If so, throw an error indicating "Division by zero" (handle this in the calling code using a try...catch block).
+// If num2 is not zero, divide num1 by num2 and return the result.
+// Default: If the operator is not a valid option (+, -, *, /), throw an error indicating "Invalid operator".
 function simpleCalculator(num1, num2, operator) {
   switch (operator) {
     case '+':
