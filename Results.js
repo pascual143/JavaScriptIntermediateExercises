@@ -432,7 +432,24 @@ console.log(missingNumber); // Output: 80
 
   
 // 12. Determine if a string is a palindrome:
-
+// Function: isPalindrome(inputString)
+// Input:
+// inputString (a string to be checked for palindrome)
+// Output:
+// isPalindrome (a boolean value indicating whether the inputString is a palindrome)
+// Steps:
+// Normalize the input string:
+// Convert the string to lowercase (to make comparisons case-insensitive).
+// Remove any non-alphanumeric characters (letters and numbers) from the string. This could include spaces, punctuation symbols, etc.
+// Reverse the normalized string:
+// Split the normalized string into an array of individual characters.
+// Reverse the order of the characters in the array.
+// Join the reversed character array back into a string.
+// Compare the original and reversed strings:
+// Check if the normalized inputString is equal to the reversedString.
+// Return the result:
+// If the two strings are equal, the inputString is a palindrome, so return true.
+// If the strings are not equal, the inputString is not a palindrome, so return false.
 function isPalindrome(inputString) {
   const normalizedString = inputString.toLowerCase().replace(/[^a-z0-9]/g, ''); // Remove spaces and punctuation
   const reversedString = normalizedString.split('').reverse().join('');
