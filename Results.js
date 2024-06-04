@@ -163,8 +163,23 @@ console.log(isoDate); // Output: "2024-03-15"
 
 
 // 5. Validate an email address:
-
-
+// Function: validateEmail(email)
+// Input: email (a string representing an email address)
+// Output: isValid (a boolean value indicating whether the email address is valid)
+// Steps:
+// Define a regular expression pattern regex to match common email address formats.
+// The pattern should include:
+// Start of string (^)
+// One or more word characters, hyphens, or periods ([\w-.]+) for the username
+// An "@" symbol
+// One or more word characters, hyphens, or periods for the domain name ([\w-.]+)
+// A period (.)
+// Two or more letter characters ([a-zA-Z]{2,}) for the top-level domain (e.g., com, org, net)
+// End of string ($)
+// Use the test method of the regular expression object on the email string:
+// The test method returns true if the email matches the regular expression pattern, otherwise false.
+// Return the result of the test method (isValid):
+// true if the email is valid according to the defined pattern, false otherwise.
 
 JavaScript
 function validateEmail(email) {
