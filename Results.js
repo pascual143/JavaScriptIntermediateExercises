@@ -196,7 +196,21 @@ emails.forEach(email => {
 
 
 // 6. Flatten a nested array:
-
+// Function: flattenArray(nestedArray)
+// Input: nestedArray (an array that may contain nested arrays)
+// Output: flattenedArray (a new array containing all elements from the original array in a single level)
+// Steps:
+// Create an empty array flattenedArray to store the flattened elements.
+// Define a recursive function traverse(array)
+// This function takes an array (array) as input.
+// Iterate through each element in the array:
+// Check the data type of the element:
+// If the element is an array:
+// Recursively call traverse(element) to explore nested arrays further.
+// If the element is not an array:
+// Add the element to the flattenedArray.
+// Call the traverse function with the original nestedArray as input (to start the flattening process).
+// Return the flattenedArray containing all elements from the original structure, including those from nested arrays.
 function flattenArray(nestedArray) {
   const flattenedArray = [];
 
