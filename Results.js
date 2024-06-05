@@ -2,24 +2,6 @@
 
 // 1. Sort a dictionary by value:
 // Write a function that sorts a dictionary (object) by its values from highest to lowest. The dictionary can contain any data type (numbers, strings, etc.).
-// PSEUDOCODE
-
-// Function: sortDictionaryByValue(dictionary)
-// Input: dictionary (an object containing key-value pairs)
-// Output: sortedDictionary (a new object with key-value pairs sorted by values in descending order)
-// 1.Create an empty list sortedList
-// 2.Iterate through each key-value pair in the dictionary
-// Add the key-value pair as a tuple ((key, value)) to the sortedList
-// 3.Sort the sortedList using a custom comparison function:
-// The comparison function takes two tuples ((key1, value1) and (key2, value2)) as arguments.
-// It should return:
-// -1 if value1 is greater than value2 (descending order)
-// 0 if value1 is equal to value2
-// 1 if value1 is less than value2
-// Create an empty dictionary sortedDictionary
-// Iterate through the sorted sortedList
-// For each tuple (key, value), add them as a key-value pair to the sortedDictionary
-// Return the sortedDictionary
 
 function sortDictionaryByValue(dictionary) {
   const sortedPairs = Object.entries(dictionary)
